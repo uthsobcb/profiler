@@ -1,0 +1,17 @@
+{
+    "name": "Uthsob Chakraborty",
+    "company": "Qweek AI",
+    "designation": "Software Engineer",
+    "goal": "Touch the sky",
+    "education": {
+        "degree": "SWE",
+        "university": "DIU"
+    },
+    "FunFact": "Loves to Dream and Learn.",
+    "urls": {
+        "linkedin": "https://www.linkedin.com/in/uthsob-cb",
+        "github": "https://github.com/uthsobcb",
+        "fb": "https://facebook.com/uthsob.cb",
+        "other": "https://dev.to/uthsob_cb"
+    }
+}
