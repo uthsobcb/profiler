@@ -1,16 +1,25 @@
-# Use an updated version of Node.js
-FROM node:18-alpine as builder
+FROM node:18 AS builder
 
 WORKDIR /app
 
-COPY package.json yarn.lock ./
+COPY package*.json ./
+COPY yarn.lock ./
 
-RUN yarn
+RUN yarn install
 
 COPY . .
 
-ENV PORT=5173
+RUN yarn build
 
-EXPOSE 5173
+FROM nginx:alpine
 
-CMD [ "yarn", "dev" ]
+WORKDIR /app
+
+COPY --from=builder /app/dist .
+
+RUN rm /etc/nginx/nginx.conf
+COPY nginx.conf /etc/nginx/nginx.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
